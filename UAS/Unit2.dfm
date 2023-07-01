@@ -152,17 +152,18 @@ object Form2: TForm2
       item
         Expanded = False
         FieldName = 'Id_wali'
+        Width = 30
         Visible = True
       end
       item
         Expanded = False
-        FieldName = 'Nama wali kelas'
+        FieldName = 'Nama_wali_kelas'
         Width = 100
         Visible = True
       end
       item
         Expanded = False
-        FieldName = 'Tanggal lahir'
+        FieldName = 'Tanggal_lahir'
         Visible = True
       end
       item
@@ -173,33 +174,36 @@ object Form2: TForm2
       item
         Expanded = False
         FieldName = 'Pendidikan'
-        Width = 100
+        Width = 80
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'Status'
+        Width = 80
         Visible = True
       end
       item
         Expanded = False
-        FieldName = 'Wali Kelas'
+        FieldName = 'Wali_Kelas'
+        Width = 80
         Visible = True
       end
       item
         Expanded = False
-        FieldName = 'Jenis Kelamin'
+        FieldName = 'Jenis_Kelamin'
         Visible = True
       end
       item
         Expanded = False
         FieldName = 'kelas'
+        Width = 100
         Visible = True
       end
       item
         Expanded = False
-        FieldName = 'kehadiran total'
-        Width = 10
+        FieldName = 'kehadiran_total'
+        Width = 100
         Visible = True
       end>
   end
