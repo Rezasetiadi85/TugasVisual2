@@ -1,6 +1,6 @@
 object Form3: TForm3
-  Left = 192
-  Top = 125
+  Left = 213
+  Top = 113
   Width = 928
   Height = 480
   Caption = 'Table user'
@@ -242,7 +242,7 @@ object Form3: TForm3
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 45097.373740509300000000
-    ReportOptions.LastChange = 45106.515559988420000000
+    ReportOptions.LastChange = 45106.515559988400000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'begin'

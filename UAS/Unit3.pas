@@ -94,7 +94,7 @@ begin
   else
   begin
  zqry1.SQL.Clear;
- zqry1.SQL.Add('insert into user values(null, "' + edt_1.Text + '", "' + edt_2.Text + '", "' + edt_3.Text + '", "' + edt_4.Text + '",');
+ zqry1.SQL.Add('insert into user values(null, "' + edt_1.Text + '", "' + edt_2.Text + '", "' + edt_3.Text + '", "' + edt_4.Text + '")');
     zqry1.ExecSQL;
 
  zqry1.SQL.Clear;
@@ -139,7 +139,7 @@ begin
 if MessageDlg('APAKAH YAKIN MENGHAPUS DATA INI?',mtWarning,[mbYes,mbNo],0)= mryes then
 begin
 zqry1.SQL.Clear;
-zqry1.SQL.Add(' delete from siswa where Id_user = "' + Id +'"');
+zqry1.SQL.Add(' delete from user where Id_user = "' + id +'"');
 zqry1. ExecSQL;
 zqry1.SQL.Clear;
 zqry1.SQL.Add('select * from user');
@@ -212,9 +212,9 @@ procedure TForm3.dbgrdSiswadbgrd1CellClick(Column: TColumn);
 begin
  id := zqry1.Fields[0].AsString;
   edt_1.Text := zqry1.Fields[1].AsString;
-  edt_2.Text := zqry1.Fields[3].AsString;
-  edt_3.Text := zqry1.Fields[4].AsString;
-  edt_4.Text := zqry1.Fields[6].AsString;
+  edt_2.Text := zqry1.Fields[2].AsString;
+  edt_3.Text := zqry1.Fields[3].AsString;
+  edt_4.Text := zqry1.Fields[4].AsString;
 edt_1.Enabled:= True;
 edt_2.Enabled:= True;
 edt_3.Enabled:= True;
@@ -224,6 +224,7 @@ btnb1.Enabled:= false;
 btnb2.Enabled:= False;
 btnb3.Enabled:= True;
 btnb4.Enabled:= True;
+btnb5.Enabled:= True;
 end;
 
 

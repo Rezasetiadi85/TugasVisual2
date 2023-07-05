@@ -50,7 +50,7 @@ type
 
 var
   Form4: TForm4;
-
+     id:string;
 implementation
 
 uses Unit2;
@@ -195,10 +195,6 @@ e_2.Enabled:= false;
 e_3.Enabled:= false;
 end;
 
-procedure TForm4.dgSiswadbgrd1CellClick(Column: TColumn);
-begin
-
-end;
 
 procedure TForm4.dbgrd1CellClick(Column: TColumn);
 begin
