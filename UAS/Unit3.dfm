@@ -1,6 +1,6 @@
 object Form3: TForm3
-  Left = 213
-  Top = 113
+  Left = 273
+  Top = 185
   Width = 928
   Height = 480
   Caption = 'Table user'

@@ -384,7 +384,7 @@ object Form2: TForm2
     PrintOptions.Printer = 'Default'
     PrintOptions.PrintOnSheet = 0
     ReportOptions.CreateDate = 45097.373740509300000000
-    ReportOptions.LastChange = 45105.886939386600000000
+    ReportOptions.LastChange = 45112.834718807870000000
     ScriptLanguage = 'PascalScript'
     ScriptText.Strings = (
       'begin'
@@ -490,7 +490,7 @@ object Form2: TForm2
         end
         object Memo7: TfrxMemoView
           Left = 226.771800000000000000
-          Width = 71.811070000000000000
+          Width = 75.590600000000000000
           Height = 34.015770000000000000
           ShowHint = False
           Font.Charset = DEFAULT_CHARSET
@@ -506,7 +506,7 @@ object Form2: TForm2
           VAlign = vaCenter
         end
         object Memo9: TfrxMemoView
-          Left = 298.582870000000000000
+          Left = 302.362400000000000000
           Width = 105.826840000000000000
           Height = 34.015770000000000000
           ShowHint = False
@@ -523,7 +523,7 @@ object Form2: TForm2
           VAlign = vaCenter
         end
         object Memo11: TfrxMemoView
-          Left = 404.409710000000000000
+          Left = 408.189240000000000000
           Width = 117.165430000000000000
           Height = 34.015770000000000000
           ShowHint = False
@@ -775,7 +775,7 @@ object Form2: TForm2
           VAlign = vaCenter
         end
         object Memo22: TfrxMemoView
-          Left = 846.614720000000000000
+          Left = 850.394250000000000000
           Width = 147.401670000000000000
           Height = 71.811070000000000000
           ShowHint = False
@@ -796,7 +796,7 @@ object Form2: TForm2
         end
         object Memo25: TfrxMemoView
           Left = 744.567410000000000000
-          Width = 102.047310000000000000
+          Width = 105.826840000000000000
           Height = 71.811070000000000000
           ShowHint = False
           DataField = 'kelas'

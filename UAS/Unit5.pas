@@ -1,19 +1,19 @@
-unit Unit4;
+unit Unit5;
 
 interface
 
 uses
   Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
   Dialogs, frxClass, frxDBSet, DB, ZAbstractRODataset, ZAbstractDataset,
-  ZDataset, ZAbstractConnection, ZConnection, StdCtrls, ComCtrls, Grids,
-  DBGrids;
+  ZDataset, ZAbstractConnection, ZConnection, StdCtrls, Grids, DBGrids;
 
 type
-  TForm4 = class(TForm)
+  TForm5 = class(TForm)
     lblI_l2: TLabel;
     lblI_l1: TLabel;
     lblI_l4: TLabel;
     lblI_l10: TLabel;
+    dbgrdSiswadbgrd1: TDBGrid;
     b1: TButton;
     b2: TButton;
     b3: TButton;
@@ -29,35 +29,31 @@ type
     frxdbdtst1: TfrxDBDataset;
     frxrprt1: TfrxReport;
     zqry2: TZQuery;
-    dbgrd1: TDBGrid;
     procedure b1Click(Sender: TObject);
     procedure b2Click(Sender: TObject);
     procedure b3Click(Sender: TObject);
     procedure b4Click(Sender: TObject);
     procedure b5Click(Sender: TObject);
     procedure b6Click(Sender: TObject);
-    procedure bersih;
     procedure posisiawal;
+    procedure bersih;
     procedure FormShow(Sender: TObject);
-    procedure dbgrd1CellClick(Column: TColumn);
-
+    procedure dbgrdSiswadbgrd1CellClick(Column: TColumn);
   private
-  protected
     { Private declarations }
   public
     { Public declarations }
   end;
 
 var
-  Form4: TForm4;
-     id:string;
+  Form5: TForm5;
+  id: string;
+
 implementation
-
-
 
 {$R *.dfm}
 
-procedure TForm4.b1Click(Sender: TObject);
+procedure TForm5.b1Click(Sender: TObject);
 begin
 b1.Enabled:= false;
 b2.Enabled:= True;
@@ -70,28 +66,28 @@ e_2.Enabled:= True;
 e_3.Enabled:= True;
 end;
 
-procedure TForm4.b2Click(Sender: TObject);
+procedure TForm5.b2Click(Sender: TObject);
 begin
  if e_1.Text='' then
   begin
-    ShowMessage('Nama Poin BELUM DIISI DENGAN BENAR');
+    ShowMessage('Nama Kelas BELUM DIISI DENGAN BENAR');
     end else
     if e_2.Text=''then
     begin
-     ShowMessage('Bobot BELUM DIISI DENGAN BENAR');
+     ShowMessage('jurusan BELUM DIISI DENGAN BENAR');
     end else
     if e_3.text=''then
     begin
-     ShowMessage('TIPE POIN BELUM DIISI DENGAN BENAR');
+     ShowMessage('Total kehadiran BELUM DIISI DENGAN BENAR');
     end else
-  if Form4.zqry1.Locate(' Nama_poin', e_1.Text, []) then
+  if Form5.zqry1.Locate(' Nama_kelas', e_1.Text, []) then
   begin
    ShowMessage('DATA SUDAH ADA DALAM SISTEM');
   end
   else
   begin
  zqry1.SQL.Clear;
- zqry1.SQL.Add('insert into poin values(null, "' + e_1.Text + '", "' + e_2.Text + '", "' + e_3.Text +  '")');
+ zqry1.SQL.Add('insert into kelas values(null, "' + e_1.Text + '", "' + e_2.Text + '", "' + e_3.Text +  '")');
     zqry1.ExecSQL;
 
  zqry1.SQL.Clear;
@@ -102,7 +98,7 @@ posisiawal;
 end;
 end;
 
-procedure TForm4.b3Click(Sender: TObject);
+procedure TForm5.b3Click(Sender: TObject);
 begin
 if (e_1.Text = '') or (e_2.Text = '') or (e_3.Text = '')  then
 begin
@@ -116,11 +112,12 @@ end else
 begin
  ShowMessage('DATA BERHASIL DIUPDATE!');
 zqry1.SQL.Clear;
-    zqry1.SQL.Add('Update poin set Nama_poin = "' + e_1.Text +'", Bobot = "' + e_2.Text + '", Tipe_poin = "' + e_3.Text + '"where Id_poin = "' + id + '"');
+    zqry1.SQL.Add('Update kelas set Nama_kelas = "' + e_1.Text +
+      '", Jurusan = "' + e_2.Text + '", Total_kehadiran = "' + e_3.Text + '"where Id_kelas = "' + id + '"');
     zqry1.ExecSQL;
 
 zqry1.SQL.Clear;
-zqry1.SQL.Add('select * from poin');
+zqry1.SQL.Add('select * from kelas');
 zqry1.Open;
 
 posisiawal;
@@ -128,19 +125,20 @@ end;
 end;
 
 
-procedure TForm4.b4Click(Sender: TObject);
+procedure TForm5.b4Click(Sender: TObject);
 begin
 if MessageDlg('APAKAH YAKIN MENGHAPUS DATA INI?',mtWarning,[mbYes,mbNo],0)= mryes then
 begin
 zqry1.SQL.Clear;
-zqry1.SQL.Add(' delete from poin where Id_poin = "' + id +'"');
+zqry1.SQL.Add(' delete from kelas where Id_kelas = "' + id  +'"');
 zqry1. ExecSQL;
 zqry1.SQL.Clear;
-zqry1.SQL.Add('select * from poin');
+zqry1.SQL.Add('select * from kelas');
 zqry1.Open;
 ShowMessage('DATA BERHASIL DIHAPUS');
 posisiawal;
-end else
+end
+ else
 begin
  ShowMessage('DATA BATAL DIHAPUS');
  posisiawal;
@@ -148,12 +146,12 @@ end
 
 end;
 
-procedure TForm4.b5Click(Sender: TObject);
+procedure TForm5.b5Click(Sender: TObject);
 begin
 posisiawal;
 end;
 
-procedure TForm4.bersih;
+procedure TForm5.bersih;
 begin
 e_1.Clear;
 e_2.Clear;
@@ -162,7 +160,7 @@ end;
 
 
 
-procedure TForm4.posisiawal;
+procedure TForm5.posisiawal;
 begin
  bersih;
 b1.Enabled:= True;
@@ -177,11 +175,11 @@ e_3.Enabled:= false;
 end;
 
 
-procedure TForm4.b6Click(Sender: TObject);
+procedure TForm5.b6Click(Sender: TObject);
 begin
 frxrprt1.ShowReport();
 end;
-procedure TForm4.FormShow(Sender: TObject);
+procedure TForm5.FormShow(Sender: TObject);
 begin
 bersih;
 b1.Enabled:=true;
@@ -196,9 +194,9 @@ e_3.Enabled:= false;
 end;
 
 
-procedure TForm4.dbgrd1CellClick(Column: TColumn);
+procedure TForm5.dbgrdSiswadbgrd1CellClick(Column: TColumn);
 begin
- Id := zqry1.Fields[0].AsString;
+      Id := zqry1.Fields[0].AsString;
   e_1.Text := zqry1.Fields[1].AsString;
   e_2.Text := zqry1.Fields[2].AsString;
   e_3.Text := zqry1.Fields[3].AsString;
@@ -211,7 +209,6 @@ b2.Enabled:= False;
 b3.Enabled:= True;
 b4.Enabled:= True;
 b5.Enabled:= True;
-
 end;
 
 end.
